@@ -4,4 +4,8 @@ public class Test {
         System.out.println("Hello Word!!!");
         System.out.println("Hello Word!!!!!");
     }
+
+    public static void voice() {
+        System.out.println("!");
+    }
 }
