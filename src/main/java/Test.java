@@ -7,9 +7,7 @@ public class Test {
 
     public static void voice() {
         System.out.println("!");
-<<<<<<< HEAD
-=======
         int i = 1 + 2;
->>>>>>> ae32a97 (test)
+        int ii = 2 + 1;
     }
 }
