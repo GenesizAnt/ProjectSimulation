@@ -4,16 +4,29 @@
 public class Predator extends Creature {
 
     private final int attackPower;
-    private int attackDistance;
+    private final int attackDistance;
 
-    public Predator(int speed, int healthPoint, int attackPower) {
-        super(speed, healthPoint);
+    public Predator(int coordinates_x, int coordinates_y, int attackPower) {
+        super(coordinates_x, coordinates_y);
         this.attackPower = attackPower;
-        setSymbol(" X ");
+        attackDistance = 3;
+    }
+
+    public int getAttackPower() {
+        return attackPower;
+    }
+
+    public int getAttackDistance() {
+        return attackDistance;
     }
 
     @Override
     void makeMove() {
 
+    }
+
+    @Override
+    public String getSymbol() {
+        return null;
     }
 }
