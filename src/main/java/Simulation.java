@@ -24,7 +24,6 @@ Actions - список действий, исполняемых перед ст�
         entities.add(new Grass(4, 5));
         entities.add(new Rock(7, 9));
         entities.add(new Tree(24, 13));
-        WordMap wordMap1 = new WordMap(entities);
         generateWord(entities);
 
     }
@@ -43,7 +42,7 @@ Actions - список действий, исполняемых перед ст�
 
     public static void generateWord(List<Entity> entities) {
 
-        Entity[][] wordMap = new Entity[50][50];
+        String[][] wordMap = new String[50][50];
 
         System.out.println();
 

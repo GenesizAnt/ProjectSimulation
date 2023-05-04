@@ -8,6 +8,9 @@ public abstract class Entity {
     private int coordinate_y;
     private String symbol;
 
+    // TODO: 04.05.2023 Сделать отдельный класс для отрисовки карты
+    // TODO: 04.05.2023 Сделать отдельный класс Координата!!!
+
     public Entity(int coordinates_x, int coordinates_y) {
         this.coordinate_x = coordinates_x;
         this.coordinate_y = coordinates_y;
