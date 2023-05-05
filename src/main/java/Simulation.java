@@ -9,17 +9,19 @@
 Рендерер поля
 Actions - список действий, исполняемых перед стартом симуляции или на каждом ходу (детали ниже)
  */
-import javax.swing.text.html.parser.Entity;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
+import java.util.*;
 
 public class Simulation {
-    public static void nextTurn() {
+
+    WordMap wordMap;
+    Actions actions;
+
+    public void nextTurn() {
 
     }
 
-    public static void startSimulation() {
+    public void startSimulation() {
 
     }
 
@@ -27,18 +29,4 @@ public class Simulation {
 
     }
 
-    public static void generateWord(List<Entity> entities) {
-
-        String[][] wordMap = new String[50][50];
-
-        System.out.println();
-
-        for (int i = 0; i < entities.size(); i++) {
-//            System.out.println();
-            for (int j = 0; j < entities.size(); j++) {
-//                System.out.print(wordMap[i][j].getSymbol());
-            }
-            System.out.println();
-        }
-    }
 }

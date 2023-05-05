@@ -30,31 +30,22 @@ public class WordMap {
         for (int i = 0; i < sizeX; i++) {
             for (int j = 0; j < sizeY; j++) {
                 entities.put(new Coordinates(i, j), new Empty(i, j));
-                field[i][j];
+                field[i][j] = new Empty(i, j);
             }
         }
     }
 
-    public void setCoordinateDrawable(int x, int y, Entity entity) {
+    public void setCoordinateDrawable(int x, int y, Drawable entity) {
         field[x][y] = entity;
     }
 
     public void drawMap() {
-
-        Entity[][] entities1 = new Entity[sizeX][sizeY];
-
-        for (Entity entity : entities.values()) {
-            System.out.print(entity.getSymbol());
+        for (int i = 0; i < sizeX; i++) {
+            System.out.println();
+            for (int j = 0; j < sizeY; j++) {
+                System.out.print(field[i][j].getSymbol());
+            }
         }
-
-
-//        for (int i = 0; i < sizeX; i++) {
-//            System.out.println();
-//            for (int j = 0; j < sizeY; j++) {
-//                for(Entity entity : entities.values()) {
-//                    System.out.print(entity.getSymbol());
-//                }
-//            }
-//        }
     }
+
 }

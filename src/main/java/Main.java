@@ -10,7 +10,7 @@ public class Main {
 //        Grass grass = new Grass(2,3);
 //        grass.getCoordinates().getSizeX();
 
-        WordMap wordMap = new WordMap(5, 5);
+        WordMap wordMap = new WordMap(10, 10);
         wordMap.fillMapEmptyObject();
         wordMap.drawMap();
 
