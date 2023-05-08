@@ -1,3 +1,7 @@
+package org.mypetproject;
+
+import java.util.Objects;
+
 public class Coordinates {
 
     private int sizeX;
@@ -6,6 +10,10 @@ public class Coordinates {
     public Coordinates(int sizeX, int sizeY) {
         this.sizeX = sizeX;
         this.sizeY = sizeY;
+    }
+
+    public Coordinates() {
+
     }
 
     public int getSizeX() {
@@ -22,5 +30,18 @@ public class Coordinates {
 
     public void setSizeY(int sizeY) {
         this.sizeY = sizeY;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Coordinates that = (Coordinates) o;
+        return sizeX == that.sizeX && sizeY == that.sizeY;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(sizeX, sizeY);
     }
 }

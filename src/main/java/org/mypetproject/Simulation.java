@@ -1,4 +1,4 @@
-
+package org.mypetproject;
 //Суть проекта - пошаговая симуляция 2D мира, населённого травоядными и хищниками.
 //Кроме существ, мир содержит ресурсы (траву), которым питаются травоядные,
 // и статичные объекты, с которыми нельзя взаимодействовать - они просто занимают место.
@@ -7,10 +7,16 @@
 Карту
 Счётчик ходов
 Рендерер поля
-Actions - список действий, исполняемых перед стартом симуляции или на каждом ходу (детали ниже)
+org.mypetproject.action.Actions - список действий, исполняемых перед стартом симуляции или на каждом ходу (детали ниже)
  */
 
-import java.util.LinkedList;
+import org.mypetproject.action.Actions;
+import org.mypetproject.entity.Entity;
+import org.mypetproject.entity.Ground;
+import org.mypetproject.entity.creature.Creature;
+import org.mypetproject.entity.stationary.CreatureNoLife;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Simulation {
@@ -18,11 +24,17 @@ public class Simulation {
     private int sizeX;
     private int sizeY;
     private WorldMap fieldWorld;
-    private List<Creature> entities = new LinkedList<>();
-    private List<CreatureNoLife> creatureNoLives = new LinkedList<>();
-    Actions actions;
+    private List<Entity> entities = new ArrayList<>();
+    private List<Creature> creatures = new ArrayList<>();
+    private List<CreatureNoLife> creatureNoLives = new ArrayList<>();
+    private Actions actions = new Actions();
     private boolean isSimulationPause;
-    private int turnCount;
+    private int daySimulation;
+    private int quantityHerbivore = 5;
+    private int quantityPredator = 5;
+    private int quantityRock = 10;
+    private int quantityTree = 10;
+    private int quantityGrass = 10;
 
     public Simulation(int sizeX, int sizeY) {
         this.sizeX = sizeX;
@@ -33,19 +45,19 @@ public class Simulation {
     public void fillMapEmptyObject() {
         for (int i = 0; i < sizeX; i++) {
             for (int j = 0; j < sizeY; j++) {
-                fieldWorld.setCoordinateDrawable(i, j, new Empty());
+                fieldWorld.setCoordinateDrawable(new Ground(new Coordinates(i, j)));
             }
         }
     }
 
     public void startSimulation() throws InterruptedException {
 
-        positionEntity();
+        actions.initAction(this.fieldWorld, quantityHerbivore, quantityPredator, quantityRock, quantityTree, quantityGrass);
 
         while (!isSimulationPause) {
             showWorldMap();
             entityTurn();
-            checkIsSimulationPause(turnCount);
+            checkIsSimulationPause(daySimulation);
             Thread.sleep(1000);
         }
 
@@ -56,10 +68,7 @@ public class Simulation {
     }
 
     private void entityTurn() {
-        for (Creature creature : entities) {
-            creature.makeMove();
-        }
-        turnCount++;
+
     }
 
     private void predatorMove() {
@@ -70,6 +79,7 @@ public class Simulation {
     }
 
     private void showWorldMap() {
+        System.out.print("\nSimulation World day " + daySimulation);
         fieldWorld.drawMap();
     }
 

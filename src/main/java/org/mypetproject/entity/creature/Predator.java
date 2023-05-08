@@ -1,3 +1,6 @@
+package org.mypetproject.entity.creature;
+
+import org.mypetproject.entity.creature.Creature;
 
 //Переместиться (чтобы приблизиться к жертве - травоядному)
 //Атаковать травоядное. При этом количество HP травоядного уменьшается на силу атаки хищника. Если значение HP жертвы опускается до 0, травоядное исчезает
@@ -6,10 +9,9 @@ public class Predator extends Creature {
     private int attackPower;
     private int attackDistance;
 
-    public Predator(int sizeX, int sizeY) {
-        super(sizeX, sizeY);
-        setAttackPower();
+    public Predator() {
         setAttackDistance();
+        setAttackPower();
     }
 
     public int getAttackPower() {
@@ -35,6 +37,6 @@ public class Predator extends Creature {
 
     @Override
     public String getSymbol() {
-        return " X ";
+        return "  X  ";
     }
 }

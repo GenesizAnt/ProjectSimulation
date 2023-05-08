@@ -1,11 +1,20 @@
+package org.mypetproject.entity;
+
+import org.mypetproject.Coordinates;
+import org.mypetproject.entity.stationary.CreatureNoLife;
 
 //ресурс для травоядных
 public class Grass extends CreatureNoLife {
 
     private int sourceOfLife;
 
-    public Grass(int sizeX, int sizeY) {
-        super(sizeX, sizeY);
+    public Grass() {
+        this.coordinates = new Coordinates();
+        setSourceOfLife();
+    }
+
+    public Grass(Coordinates coordinates) {
+        this.coordinates = coordinates;
         setSourceOfLife();
     }
 
@@ -19,6 +28,6 @@ public class Grass extends CreatureNoLife {
 
     @Override
     public String getSymbol() {
-        return " ,~, ";
+        return " ,,, ";
     }
 }

@@ -1,12 +1,11 @@
-public class Main {
+package org.mypetproject;
 
+import org.mypetproject.entity.creature.Herbivore;
+import org.mypetproject.entity.creature.Predator;
+
+public class Main {
     public static void main(String[] args) {
 
-        startGame();
-
-    }
-
-    public static void startGame() {
         Simulation simulation = new Simulation(10, 10);
         simulation.fillMapEmptyObject();
         try {
@@ -14,5 +13,7 @@ public class Main {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+
+
     }
 }
