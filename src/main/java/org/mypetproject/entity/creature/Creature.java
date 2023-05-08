@@ -1,11 +1,13 @@
+package org.mypetproject.entity.creature;
+
+import org.mypetproject.entity.Entity;
 
 public abstract class Creature extends Entity {
 
     private int speed;
     private int healthPoint;
 
-    public Creature(int coordinates_x, int coordinates_y) {
-        super(coordinates_x, coordinates_y);
+    public Creature() {
         setHealthPoint();
         setSpeed();
     }
