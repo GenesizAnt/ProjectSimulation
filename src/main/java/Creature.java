@@ -4,8 +4,8 @@ public abstract class Creature extends Entity {
     private int speed;
     private int healthPoint;
 
-    public Creature(int coordinates_x, int coordinates_y) {
-        super(coordinates_x, coordinates_y);
+    public Creature(int sizeX, int sizeY) {
+        super(sizeX, sizeY);
         setHealthPoint();
         setSpeed();
     }

@@ -10,23 +10,83 @@
 Actions - список действий, исполняемых перед стартом симуляции или на каждом ходу (детали ниже)
  */
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Simulation {
 
-    WordMap wordMap;
+    private int sizeX;
+    private int sizeY;
+    private WorldMap fieldWorld;
+    private List<Creature> entities = new LinkedList<>();
+    private List<CreatureNoLife> creatureNoLives = new LinkedList<>();
     Actions actions;
+    private boolean isSimulationPause;
+    private int turnCount;
+
+    public Simulation(int sizeX, int sizeY) {
+        this.sizeX = sizeX;
+        this.sizeY = sizeY;
+        this.fieldWorld = new WorldMap(sizeX, sizeY);
+    }
+
+    public void fillMapEmptyObject() {
+        for (int i = 0; i < sizeX; i++) {
+            for (int j = 0; j < sizeY; j++) {
+                fieldWorld.setCoordinateDrawable(i, j, new Empty());
+            }
+        }
+    }
+
+    public void startSimulation() throws InterruptedException {
+
+        positionEntity();
+
+        while (!isSimulationPause) {
+            showWorldMap();
+            entityTurn();
+            checkIsSimulationPause(turnCount);
+            Thread.sleep(1000);
+        }
+
+    }
+
+    private void positionEntity() {
+
+    }
+
+    private void entityTurn() {
+        for (Creature creature : entities) {
+            creature.makeMove();
+        }
+        turnCount++;
+    }
+
+    private void predatorMove() {
+    }
+
+    private void herbivoreMove() {
+
+    }
+
+    private void showWorldMap() {
+        fieldWorld.drawMap();
+    }
+
+    private boolean checkIsSimulationPause(int turnCount) {
+        //дать на выбор несколько вариантов как продолжать дальнейшую симуляцию
+        //после 10 ходов пауза
+        //если сьели всех животных
+        //вопрос - хотите перейти на пошаговую симуляцию 
+        return false;
+    }
 
     public void nextTurn() {
 
     }
 
-    public void startSimulation() {
-
-    }
-
-    public static void pauseSimulation() {
-
-    }
+//    public static void pauseSimulation() {
+//
+//    }
 
 }

@@ -1,12 +1,13 @@
 
 //статичные объекты на поле
-public class Tree extends Entity {
-    public Tree(int coordinates_x, int coordinates_y) {
-        super(coordinates_x, coordinates_y);
+public class Tree extends CreatureNoLife {
+
+    public Tree(int sizeX, int sizeY) {
+        super(sizeX, sizeY);
     }
 
     @Override
     public String getSymbol() {
-        return null;
+        return " `|` ";
     }
 }

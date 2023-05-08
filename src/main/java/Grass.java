@@ -1,20 +1,24 @@
 
 //ресурс для травоядных
-public class Grass extends Entity {
+public class Grass extends CreatureNoLife {
 
-    public final int HEALTH_UP = 3;
+    private int sourceOfLife;
 
-    public Grass(int coordinates_x, int coordinates_y) {
-        super(coordinates_x, coordinates_y);
-        int health_up = HEALTH_UP;
+    public Grass(int sizeX, int sizeY) {
+        super(sizeX, sizeY);
+        setSourceOfLife();
     }
 
-    public int getHEALTH_UP() {
-        return HEALTH_UP;
+    public int getSourceOfLife() {
+        return sourceOfLife;
+    }
+
+    private void setSourceOfLife() {
+        this.sourceOfLife = (int) (Math.random() * 5) + 1;
     }
 
     @Override
     public String getSymbol() {
-        return null;
+        return " ,~, ";
     }
 }

@@ -2,19 +2,27 @@
 //Корневой абстрактный класс для всех существ и объектов существующих в симуляции
 public abstract class Entity implements Drawable {
 
-    private Coordinates coordinates;
+    private int sizeX;
+    private int sizeY;
 
-    // TODO: 04.05.2023 Сделать отдельный класс для отрисовки карты
-
-    public Entity(int coordinates_x, int coordinates_y) {
-        coordinates = new Coordinates(coordinates_x, coordinates_y);
+    public Entity(int sizeX, int sizeY) {
+        this.sizeX = sizeX;
+        this.sizeY = sizeY;
     }
 
-    public Coordinates getCoordinates() {
-        return coordinates;
+    public int getSizeX() {
+        return sizeX;
     }
 
-    public void setCoordinates(Coordinates coordinates) {
-        this.coordinates = coordinates;
+    public void setSizeX(int sizeX) {
+        this.sizeX = sizeX;
+    }
+
+    public int getSizeY() {
+        return sizeY;
+    }
+
+    public void setSizeY(int sizeY) {
+        this.sizeY = sizeY;
     }
 }

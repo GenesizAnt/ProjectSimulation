@@ -1,12 +1,13 @@
 
 //статичные объекты на поле
-public class Rock extends Entity {
-    public Rock(int coordinates_x, int coordinates_y) {
-        super(coordinates_x, coordinates_y);
+public class Rock extends CreatureNoLife {
+
+    public Rock(int sizeX, int sizeY) {
+        super(sizeX, sizeY);
     }
 
     @Override
     public String getSymbol() {
-        return null;
+        return " <^> ";
     }
 }
