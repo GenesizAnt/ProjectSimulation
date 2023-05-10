@@ -6,7 +6,7 @@ import org.mypetproject.entity.creature.Predator;
 public class Main {
     public static void main(String[] args) {
 
-        Simulation simulation = new Simulation(10, 10);
+        Simulation simulation = new Simulation(25, 25);
         simulation.fillMapEmptyObject();
         try {
             simulation.startSimulation();

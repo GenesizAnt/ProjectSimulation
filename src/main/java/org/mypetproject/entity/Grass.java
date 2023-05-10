@@ -28,6 +28,6 @@ public class Grass extends CreatureNoLife {
 
     @Override
     public String getSymbol() {
-        return " ,,, ";
+        return "  \u2234  ";
     }
 }

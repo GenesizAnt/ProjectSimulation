@@ -15,6 +15,6 @@ public class Ground extends Entity {
 
     @Override
     public String getSymbol() {
-        return "  .  ";
-    }
+        return "  \u00B7  ";
+    } //•
 }

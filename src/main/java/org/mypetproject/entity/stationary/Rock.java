@@ -16,6 +16,6 @@ public class Rock extends CreatureNoLife {
 
     @Override
     public String getSymbol() {
-        return " [@] ";
+        return "  \u25A0  ";
     }
 }

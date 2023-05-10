@@ -30,11 +30,11 @@ public class Simulation {
     private Actions actions = new Actions();
     private boolean isSimulationPause;
     private int daySimulation;
-    private int quantityHerbivore = 5;
-    private int quantityPredator = 5;
+    private int quantityHerbivore = 50;
+    private int quantityPredator = 50;
     private int quantityRock = 10;
-    private int quantityTree = 10;
-    private int quantityGrass = 10;
+    private int quantityTree = 150;
+    private int quantityGrass = 300;
 
     public Simulation(int sizeX, int sizeY) {
         this.sizeX = sizeX;
@@ -58,17 +58,20 @@ public class Simulation {
             showWorldMap();
             entityTurn();
             checkIsSimulationPause(daySimulation);
-            Thread.sleep(1000);
+            Thread.sleep(700);
         }
 
     }
 
-    private void positionEntity() {
-
-    }
-
     private void entityTurn() {
-
+        for (int i = 0; i < sizeX; i++) {
+            for (int j = 0; j < sizeY; j++) {
+                if (fieldWorld.getFieldWorld()[i][j] instanceof Creature) {
+                    ((Creature) fieldWorld.getFieldWorld()[i][j]).makeMove(fieldWorld);
+                }
+            }
+        }
+        daySimulation++;
     }
 
     private void predatorMove() {
