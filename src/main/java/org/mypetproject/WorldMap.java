@@ -18,6 +18,10 @@ public class WorldMap {
         fieldWorld[coordinates.getSizeX()][coordinates.getSizeY()] = entity;
     }
 
+    public Entity getEntityWithWorldMap(int sizeX, int sizeY) {
+        return fieldWorld[sizeX][sizeY];
+    }
+
     public void drawMap() {
         for (Entity[] entities : fieldWorld) {
             System.out.println();
@@ -37,7 +41,8 @@ public class WorldMap {
 //        System.out.println();
 //    }
 
-    public Drawable[][] getFieldWorld() {
+
+    public Entity[][] getFieldWorld() {
         return fieldWorld;
     }
 

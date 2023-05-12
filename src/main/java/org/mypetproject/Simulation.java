@@ -12,8 +12,10 @@ org.mypetproject.action.Actions - список действий, исполня�
 
 import org.mypetproject.action.Actions;
 import org.mypetproject.entity.Entity;
+import org.mypetproject.entity.Grass;
 import org.mypetproject.entity.Ground;
 import org.mypetproject.entity.creature.Creature;
+import org.mypetproject.entity.creature.Herbivore;
 import org.mypetproject.entity.stationary.CreatureNoLife;
 
 import java.util.ArrayList;
@@ -30,11 +32,11 @@ public class Simulation {
     private Actions actions = new Actions();
     private boolean isSimulationPause;
     private int daySimulation;
-    private int quantityHerbivore = 5;
-    private int quantityPredator = 5;
-    private int quantityRock = 10;
-    private int quantityTree = 10;
-    private int quantityGrass = 10;
+    private int quantityHerbivore = 1;
+    private int quantityPredator = 0;
+    private int quantityRock = 0;
+    private int quantityTree = 0;
+    private int quantityGrass = 1;
 
     public Simulation(int sizeX, int sizeY) {
         this.sizeX = sizeX;
@@ -68,7 +70,13 @@ public class Simulation {
     }
 
     private void entityTurn() {
-
+        for (int i = 0; i < sizeX; i++) {
+            for (int j = 0; j < sizeY; j++) {
+                if (fieldWorld.getFieldWorld()[i][j] instanceof Herbivore) {
+                    System.out.println(actions.findTargetEntity(fieldWorld, (Creature) fieldWorld.getEntityWithWorldMap(i,j), new Grass()).toString());
+                }
+            }
+        }
     }
 
     private void predatorMove() {
