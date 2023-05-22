@@ -1,17 +1,27 @@
 package org.mypetproject.entity.creature;
 
 import org.mypetproject.Coordinates;
+import org.mypetproject.WorldMap;
+import org.mypetproject.action.FindingPath;
 import org.mypetproject.entity.Grass;
 import org.mypetproject.entity.Ground;
 import org.mypetproject.entity.creature.Creature;
+import org.mypetproject.entity.stationary.CreatureNoLife;
 import org.mypetproject.entity.stationary.Rock;
 import org.mypetproject.entity.stationary.Tree;
+
+import java.util.List;
 
 //Стремятся найти ресурс (траву), может потратить свой ход на движение в сторону травы, либо на её поглощение
 public class Herbivore extends Creature {
 
     @Override
-    void makeMove() {
+    public void makeMove(WorldMap worldMap, CreatureNoLife creatureNoLife) {
+
+        FindingPath findingPath = new FindingPath();
+
+        List<Coordinates> wayTo = findingPath.findTargetEntity(worldMap, this, creatureNoLife);
+
 //        int sizeX = coordinates.getSizeX();
 //        int sizeY = coordinates.getSizeY();
 //        int deltaSizeX = 1 - (int) ((Math.random() * 3));

@@ -1,15 +1,23 @@
 package org.mypetproject.entity.creature;
 
+import org.mypetproject.WorldMap;
+import org.mypetproject.action.FindingPath;
 import org.mypetproject.entity.Entity;
+import org.mypetproject.entity.stationary.CreatureNoLife;
 
 public abstract class Creature extends Entity {
 
     private int speed;
     private int healthPoint;
+    private FindingPath findingPath;
 
     public Creature() {
         setHealthPoint();
         setSpeed();
+    }
+
+    public FindingPath getFindingPath() {
+        return findingPath;
     }
 
     public int getSpeed() {
@@ -28,5 +36,5 @@ public abstract class Creature extends Entity {
         this.healthPoint = (int) (Math.random() * 50) + 1;
     }
 
-    abstract void makeMove();
+    abstract void makeMove(WorldMap worldMap, CreatureNoLife creatureNoLife);
 }

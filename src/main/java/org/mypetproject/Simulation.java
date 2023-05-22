@@ -11,6 +11,7 @@ org.mypetproject.action.Actions - список действий, исполня�
  */
 
 import org.mypetproject.action.Actions;
+import org.mypetproject.action.FindingPath;
 import org.mypetproject.entity.Entity;
 import org.mypetproject.entity.Grass;
 import org.mypetproject.entity.Ground;
@@ -37,6 +38,7 @@ public class Simulation {
     private int quantityRock = 0;
     private int quantityTree = 0;
     private int quantityGrass = 1;
+    private FindingPath findingPath;
 
     public Simulation(int sizeX, int sizeY) {
         this.sizeX = sizeX;
@@ -73,7 +75,8 @@ public class Simulation {
         for (int i = 0; i < sizeX; i++) {
             for (int j = 0; j < sizeY; j++) {
                 if (fieldWorld.getFieldWorld()[i][j] instanceof Herbivore) {
-                    System.out.println(actions.findTargetEntity(fieldWorld, (Creature) fieldWorld.getEntityWithWorldMap(i,j), new Grass()).toString());
+                    ((Herbivore) fieldWorld.getFieldWorld()[i][j]).makeMove(fieldWorld, new Grass());
+//                    System.out.println(actions.findTargetEntity(fieldWorld, (Creature) fieldWorld.getEntityWithWorldMap(i,j), new Grass()).toString());
                 }
             }
         }
